@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Classes </title>
+    </head>
+    <body>
+        <h1>Classes</h1>
+        <ul>
+            {% for classes in class_list %}
+                <li>
+                    <a href="{% url 'class_description' classes.pk %}">{{ classes.name }}</a> - {{ classes.description }}
+                </li>
+            {% empty %}
+                <li>No classes available.</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
