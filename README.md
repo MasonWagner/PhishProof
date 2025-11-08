@@ -3,17 +3,17 @@ The Phish Proof web app is designed to teach corporations and their employees ho
 Practicing proper security hygiene is very important for corporations especially ones that deal with Personally Identifiable Information (PII). Informing your employee base of best security practices will not only keep them from being exploited, but it makes your company more secure overall. The number one weakness in security is humans, but the number one strength in security is well informed humans.
 
 ## Installation
-'''bash
+```bash
 pip install django
 python manage.py migrate
 python manage.py createsuperuser
-'''
+```
 
 ## Getting Started
 To run Phish Proof, simply,
-'''bash
+```bash
 python manage.py runserver
-'''
+```
 
 # License
 The MIT License
