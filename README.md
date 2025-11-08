@@ -1,0 +1,5 @@
+# Phish Proof
+The Phish Proof web app is designed to teach corporations and their employees how to practice proper security hygiene. Phish Proof consists of various rooms that are designed to educate about the various ways that attackers attempt to social engineer employees, exploit insecure passwords, and exploit excessive permissions to move laterally within a network or gain access to sensitive data. Each user will have their own login and be able to move through the material at their own pace.
+Practicing proper security hygiene is very important for corporations especially ones that deal with Personally Identifiable Information (PII). Informing your employee base of best security practices will not only keep them from being exploited, but it makes your company more secure overall. The number one weakness in security is humans, but the number one strength in security is well informed humans.
+
+## Installation
