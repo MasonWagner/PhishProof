@@ -1,7 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <title>{{ classes.name }}</title>
+        <link rel="stylesheet" href="{% static 'phishproofapi/styles.css' %}">
     </head>
     <body>
         <h1>{{ classes.name }}</h1>
