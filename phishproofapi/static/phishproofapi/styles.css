@@ -1,3 +1,24 @@
+#classes {
+    background-color: #B0C4DE;
+}
+#classes-title {
+    color: #F5FFFA;
+}
+#class-list { 
+    background-color: #778899;
+    color: #F5FFFA;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+}
+#class-list a {
+    color: #F5FFFA;
+    text-decoration: underline;
+}
+#class-list a:hover{
+    color: #B0E0E6;
+}
 h1 {
     color: red;
 }
