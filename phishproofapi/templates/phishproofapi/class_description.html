@@ -6,9 +6,9 @@
         <link rel="stylesheet" href="{% static 'phishproofapi/styles.css' %}">
         <link rel="icon" href="{% static 'phishproofapi/logo.ico' %}" type="image/x-icon">
     </head>
-    <body>
+    <body id="class-des">
         <h1>{{ classes.name }}</h1>
-        <p>{{ classes.description }}</p>
-        <a href="{% url 'class_list' %}"> Back to Class List</a>
+        <ul id="nav"><li><a href="{% url 'class_list' %}"> Back to Class List</a></li></ul>
+        <p id="description">{{ classes.description }}</p>
     </body>
 </html>

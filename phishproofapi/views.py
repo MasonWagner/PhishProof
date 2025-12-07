@@ -10,4 +10,4 @@ def class_list(request):
 
 def class_description(request, pk):
     classes = get_object_or_404(Classes, pk=pk)
-    return render(request, 'phishproofapi/class_description.html', {'classes': Classes})
+    return render(request, 'phishproofapi/class_description.html', {'classes': classes})
