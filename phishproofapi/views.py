@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import Classes
+from .models import Classes, Challenges
 
 # Create your views here.
 def home(request):
@@ -14,6 +14,14 @@ def class_list(request):
 def class_description(request, pk):
     classes = get_object_or_404(Classes, pk=pk)
     return render(request, 'phishproofapi/class_description.html', {'classes': classes})
+
+def challenge_list(request):
+    challenge_list = Challenges.objects.all()
+    return render(request, 'phishproofapi/challenge_list.html', {'challenge_list': challenge_list})
+
+def challenge_description(request, pk):
+    challenges = get_object_or_404(Classes, pk=pk)
+    return render(request, 'phishproofapi/challenge_description.html', {'challenges': challenges})
 
 def register(request):
     if request.method == 'POST':
@@ -44,10 +52,36 @@ def login_view(request):
 
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            auth_login(request, user)
+            login(request, user)
             return redirect('home')
         else:
             messages.error(request, "Invalid username or password.")
             return redirect('login')
         
     return render(request, 'phishproofapi/login.html')
+
+def profile(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    
+    return render(request, 'phishproofapi/profile.html', {'user': request.user})
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+
+def enroll_class(request, class_id):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    classes = get_object_or_404(Classes, id=class_id)
+    classes.students.add(request.user)
+    classes.save()
+    return redirect('class_list')
+
+def start_challenge(request, challenge_id):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    challenges = get_object_or_404(Challenges, id=challenge_id)
+    challenges.students.add(request.user)
+    challenges.save()
+    return redirect('challenge_list')

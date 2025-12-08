@@ -1,17 +1,25 @@
 {% load static %}
+
 <!DOCTYPE html>
+
 <html>
-<head>
-    <title>Phishproof</title>
-    <link rel="stylesheet" href="{% static 'phishproofapi/styles.css' %}">
-    <link rel="icon" href="{% static 'phishproofapi/logo.ico' %}" type="image/x-icon">
-</head>
-<body id="home">
-    <h1>Phishproof</h1>
-    <ul id="nav">
-        <li id="class-list-nav"><a href="class_list/">Class List</a></li>
-        <li id="challenge-list-nav"><a href="challenge_list/">Challenges</a></li>
-        <li id="profile-nav"><a href="profile/">Profile</a></li>
-    </ul>
-</body>
+    <head>
+        <title>Phishproof</title>
+        <link rel="stylesheet" href="{% static 'phishproofapi/styles.css' %}">
+        <link rel="icon" href="{% static 'phishproofapi/logo.ico' %}" type="image/x-icon">
+    </head>
+    <body id="home">
+        <h1>Phishproof</h1>
+        <ul id="nav">
+            <li id="class-list-nav"><a href="{% url 'class_list' %}">Class List</a></li>
+            <li id="challenge-list-nav"><a href="{% url 'challenge_list' %}">Challenges</a></li>
+            <li id="profile-nav"><a href="{% url 'profile' %}">Profile</a></li>
+        </ul>
+        <p id="ab-home">
+            Welcome to Phishproof, here you can find numerous classes and challenges to help <br>
+            better your awareness and skills in the cybersecurity field. By going through thsese <br>
+            classes and challenges, you will secure yourself and help bolster your company from <br>
+            threat actors.
+        </p>
+    </body>
 </html>

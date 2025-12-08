@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Phishproof - {{ user.username }}</title>
+        <link rel="stylesheet" href="{% static 'phishproofapi/styles.css' %}">
+        <link rel="icon" href="{% static 'phishproofapi/logo.ico' %}" type="image/x-icon">
+    </head>
+    <body id="profile">
+        <h1>Hello, {{ user.username }}!</h1>
+        <ul id="nav">
+            <li id="home-nav"><a href="{% url 'home' %}">Home</a></li>
+            <li id="class-list-nav"><a href="{% url 'class_list' %}">Class List</a></li>
+            <li id="challenge-list-nav"><a href="{% url 'challenge_list' %}">Challenges</a></li>
+        </ul>
+        <div id="profile-info">
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Date Joined:</strong> {{ user.date_joined }}</p>
+            <p><strong>Last Login:</strong> {{ user.last_login }}</p>
+            <p><strong>Current Classes: </strong></p>
+            {% if user.classes.all %}
+                <ul>
+                    {% for cls in user.classes.all %}
+                        <li id="enrolled-classes">{{ cls.name }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>None</p>
+            {% endif %}
+            <p><strong>Current Challenges: </strong></p>
+            {% if user.challenges.all %}
+                <ul>
+                    {% for challenge in user.challenges.all %}
+                        <li id="enrolled-challenges">{{ challenge.name }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>None</p>
+            {% endif %}
+        </div>
+        <a href="{% url 'logout' %}">
+            <button id="logout-btn" type="button">Logout</button>
+        </a>
+    </body>
+</html>

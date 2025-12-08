@@ -1,16 +1,37 @@
-<form method="POST">
-    {% csrf_token %}
-    <label>Username:</label>
-    <input type="text" name="username" required><br>
-    <label>Password:</label>
-    <input type="password" name="password" required><br>
-    <button type="submit">Login</button>
-</form>
+{% load static %}
 
-{% if messages %}
-<ul>
-    {% for message in messages %}
-        <li>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Phishproof - Login</title>
+        <link rel="stylesheet" href="{% static 'phishproofapi/styles.css' %}">
+        <link rel="icon" href="{% static 'phishproofapi/logo.ico' %}" type="image/x-icon">
+    </head>
+
+    <body id="login-reg">
+        <form id="forms" method="POST">
+            <h1 id="forms-h1">Login</h1>
+            <ul id="forms-nav">
+                <li id="home-nav"><a href='/'>Home</a></li>
+            </ul>
+            {% csrf_token %}
+            <label>Username:</label>
+            <input type="text" name="username" required><br><br>
+            <label>Password:</label>
+            <input type="password" name="password" required><br><br>
+            <button type="submit">Login</button>
+            <a href="{% url 'register' %}">
+                <button type="button">No account? Create one.</button>
+            </a>
+        </form>
+
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </body>
+</html>

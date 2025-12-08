@@ -1,6 +1,5 @@
-#home {
-    background-color: #B0C4DE;
-}
+#home {background-color: #B0C4DE;}
+
 h1 {
     color: #F5FFFA;
 }
@@ -22,35 +21,83 @@ h1 {
 #home-nav a:hover,
 #class-list-nav a:hover,
 #challenge-list-nav a:hover,
-#profile-nav a:hover {
+#profile-nav a:hover,
+#login-nav a:hover {
     background-color: #708090;
 }
+#forms-nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    justify-content: center;
+}
+#forms-nav li a {
+    color: #F5FFFA;
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid black;
+    margin: 0;
+    background-color: #778899;
+    text-decoration: none;
+}
 
-#classes {background-color: #B0C4DE;}
+#classes, #challenges {background-color: #B0C4DE;}
 
-#class-list { 
+#class-list, #challenge-list { 
     background-color: #778899;
     color: #F5FFFA;
     padding: 15px;
     border: 1px solid black;
     border-radius: 5px;
-    margin: 20px;
+    margin: 20px 20px 20px 0px;
+    list-style: none;
 }
-#class-list a {
+#class-list a, #challenge-list a {
     color: #F5FFFA;
     text-decoration: underline;
 }
-#class-list a:hover{
+#class-list a:hover, #challenge-list a:hover{
     color: #B0E0E6;
 }
-#class-des {
+#class-des, #challenge-des {
     background-color: #B0C4DE;
 }
-#description {
+#description, #ab-home {
     background-color: #778899;
     color: #F5FFFA;
     padding: 15px;
     border: 1px solid black;
     border-radius: 5px;
-    margin: 20px;
+    margin: 20px 20px 20px 0px;
 }
+
+#login-reg {background-color: #778899;}
+
+#forms {
+    background-color: #B0C4DE;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 300px;
+    margin: 50px auto;
+}
+#forms-h1 { 
+    text-align: center;
+    color: #F5FFFA;
+}
+
+#profile {background-color: #B0C4DE;}
+
+#profile-info {
+    background-color: #778899;
+    color: #F5FFFA;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 20px 20px 20px 0px;
+}
+
+#enrolled-classes, #enrolled-challenges { list-style: none;}
+
+#enroll-btn, #logout-btn, #start-btn { cursor: pointer; }

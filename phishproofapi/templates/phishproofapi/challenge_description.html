@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Phishproof - {{ challenges.name }}</title>
+        <link rel="stylesheet" href="{% static 'phishproofapi/styles.css' %}">
+        <link rel="icon" href="{% static 'phishproofapi/logo.ico' %}" type="image/x-icon">
+    </head>
+    <body id="challenge-des">
+        <h1>{{ challenges.name }}</h1>
+        <ul id="nav"><li><a href="{% url 'challenge_list' %}"> Back to Challenge List</a></li></ul>
+        <p id="description">{{ challenges.description }}</p>
+        <form method="POST" action="{% url 'start_challenge' challenges.id %}">
+            {% csrf_token %}
+            <button id="start-btn" type="submit">Start</button>
+        </form>
+    </body>
+</html>

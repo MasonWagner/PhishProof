@@ -8,20 +8,20 @@
         <link rel="stylesheet" href="{% static 'phishproofapi/styles.css' %}">
         <link rel="icon" href="{% static 'phishproofapi/logo.ico' %}" type="image/x-icon">
     </head>
-    <body id="classes">
-        <h1>Classes</h1>
+    <body id="challenges">
+        <h1>Challenges</h1>
         <ul id="nav">
             <li id="home-nav"><a href="{% url 'home' %}">Home</a></li>
-            <li id="challenge-list-nav"><a href="{% url 'challenge_list' %}">Challenges</a></li>
+            <li id="class-list-nav"><a href="{% url 'class_list' %}">Class List</a></li>
             <li id="profile-nav"><a href="{% url 'profile' %}">Profile</a></li>
         </ul>
-        <ul id="class-list">
-            {% for classes in class_list %}
+        <ul id="challenge-list">
+            {% for challenges in challenge_list %}
                 <li>
-                    <a href="{% url 'class_description' classes.pk %}">{{ classes.name }}</a> - {{ classes.description }}
+                    <a href="{% url 'challenge_description' challenges.pk %}">{{ challenges.name }}</a> - {{ challenges.description }}
                 </li>
             {% empty %}
-                <li>No classes available.</li>
+                <li>No challenges available.</li>
             {% endfor %}
         </ul>
     </body>

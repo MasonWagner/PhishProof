@@ -1,8 +1,10 @@
 {% load static %}
+
 <!DOCTYPE html>
+
 <html>
     <head>
-        <title>Phishproof</title>
+        <title>Phishproof - {{ classes.name }}</title>
         <link rel="stylesheet" href="{% static 'phishproofapi/styles.css' %}">
         <link rel="icon" href="{% static 'phishproofapi/logo.ico' %}" type="image/x-icon">
     </head>
@@ -10,5 +12,9 @@
         <h1>{{ classes.name }}</h1>
         <ul id="nav"><li><a href="{% url 'class_list' %}"> Back to Class List</a></li></ul>
         <p id="description">{{ classes.description }}</p>
+        <form method="POST" action="{% url 'enroll_class' classes.id %}">
+            {% csrf_token %}
+            <button id="enroll-btn" type="submit">Enroll</button>
+        </form>
     </body>
 </html>
