@@ -16,9 +16,9 @@ To run Phish Proof, simply,
 python manage.py runserver
 ```
 In order to create a class or challenge via the admin portal, navigate to:
-'''bash
+```bash
 /admin/
-'''
+```
 and login with the superuser you created.
 Additionally, here you can create/modify users.
 
