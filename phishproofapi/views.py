@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+import bleach
 from .models import Classes, Challenges
 
 # Create your views here.
@@ -30,12 +31,19 @@ def register(request):
         password2 = request.POST.get('password2')
         email = request.POST.get('email')
 
+        username = bleach.clean(username, tags=[], attributes={}, styles=[])
+        email = bleach.clean(email, tags=[], attributes={}, styles=[])
+
         if password != password2:
             messages.error(request, "Passwords do not match.")
             return redirect('register')
         
         if User.objects.filter(username=username).exists():
             messages.error(request, "Username already taken.")
+            return redirect('register')
+        
+        if '@' not in email or '.' not in email:
+            messages.error(request, "Invalid email address.")
             return redirect('register')
         
         user = User.objects.create_user(username=username, password=password, email=email)
@@ -50,7 +58,11 @@ def login_view(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
+        username = bleach.clean(username, tags=[], attributes={}, styles=[])
+        password = bleach.clean(password, tags=[], attributes={}, styles=[])
+
         user = authenticate(request, username=username, password=password)
+
         if user is not None:
             login(request, user)
             return redirect('home')
