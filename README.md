@@ -5,6 +5,7 @@ Practicing proper security hygiene is very important for corporations especially
 ## Installation
 ```bash
 pip install django
+pip install bleach
 python manage.py migrate
 python manage.py createsuperuser
 ```
@@ -14,6 +15,12 @@ To run Phish Proof, simply,
 ```bash
 python manage.py runserver
 ```
+In order to create a class or challenge via the admin portal, navigate to:
+'''bash
+/admin/
+'''
+and login with the superuser you created.
+Additionally, here you can create/modify users.
 
 # License
 The MIT License
